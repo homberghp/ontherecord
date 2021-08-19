@@ -21,10 +21,55 @@ The trick is to give each (relevant) interface an static inner class of the reco
 image::docs/images/records.svg[]
 
 
-.The client program
+.The client program School
 [source,java]
 ----
-include::typeheirarchy/src/main/java/typeheirarchy/School.java[]
+public class School {
+
+    private final String fontys;
+    final List<Student> students = new ArrayList<>();
+    final List<Tutor> tutors = new ArrayList<>();
+    final List<StudentAssistant> assistants = new ArrayList<>();
+    final List<EmeritusTeacher> emiritates = new ArrayList<>();
+
+    public School(String fontys) {
+        this.fontys = fontys;
+    }
+
+    public static void main(String[] args) {
+        School fontys = new School( "fontys" );
+        Tutor homb02 = Tutor.of( "Pieter van den Hombergh", 879417, "JAVA" );
+        fontys.add( homb02 );
+        fontys.add( EmeritusTeacher.of( homb02, 2021 ) );
+        fontys.add( Student.of( "Pietje Puk", 82452102, "fontys" ) );
+        fontys.add( StudentAssistant.of( "Barbara Feldon", 81302062, "fontys", "JAVA" ) );
+
+        System.out.println( "fontys = " + fontys );
+    }
+
+    public void add(Tutor aTutor) {
+        tutors.add( aTutor );
+    }
+
+    public void add(Student aStudent) {
+        students.add( aStudent );
+    }
+
+    public void add(StudentAssistant assist) {
+        students.add( assist );
+        tutors.add( assist );
+        assistants.add( assist );
+    }
+
+    public void add(EmeritusTeacher anOldTeacher) {
+        emiritates.add( anOldTeacher );
+    }
+
+    @Override
+    public String toString() {
+        return "School{\n" + " name=" + fontys + ",\n students=" + students + ",\n tutors=" + tutors + ",\n assistants=" + assistants + ",\n emiritates=" + emiritates + "\n}";
+    }
+}
 ----
 
 .Student Assistant

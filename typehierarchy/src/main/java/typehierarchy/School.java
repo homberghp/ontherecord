@@ -25,10 +25,10 @@ import java.util.List;
 public class School {
 
     private final String fontys;
-    List<Student> students = new ArrayList<>();
-    List<Tutor> tutors = new ArrayList<>();
-    List<StudentAssistant> assistants = new ArrayList<>();
-    List<EmeritusTeacher> emiritates = new ArrayList<>();
+    final List<Student> students = new ArrayList<>();
+    final List<Tutor> tutors = new ArrayList<>();
+    final List<StudentAssistant> assistants = new ArrayList<>();
+    final List<EmeritusTeacher> emiritates = new ArrayList<>();
 
     public School(String fontys) {
         this.fontys = fontys;
