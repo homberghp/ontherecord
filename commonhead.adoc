@@ -1,0 +1,14 @@
+:toc: right
+:toclevels: 4
+:icons: font
+:docinfo: shared
+:source-highlighter: highlightjs
+:highlightjs-theme: googlecode
+:highlightjs-linenums-mode: inline
+:linkattrs: true
+:stem: latexmath
+:experimental:
+:sectlinks:
+:sectanchors:
+:backtick: '`'
+:command: &#8984;

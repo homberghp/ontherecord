@@ -27,7 +27,13 @@ public interface StudentAssistant extends Student, Tutor {
         return new StudentAssistantRecord( name, digid, school, course );
     }
 
-    record StudentAssistantRecord(String name, long digid, String school, String course) implements StudentAssistant {
+    static StudentAssistant of(Student aStudent, String course) {
+        return new StudentAssistantRecord( aStudent.name(), aStudent.digid(),
+                aStudent.school(), course );
+    }
+
+    record StudentAssistantRecord(String name, long digid, String school, String course)
+            implements StudentAssistant {
 
     }
 
