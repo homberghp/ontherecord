@@ -84,8 +84,7 @@ public interface StudentAssistant extends Student, Tutor {
     }
 
     static StudentAssistant of(Student aStudent, String course) {
-        return new StudentAssistantRecord( aStudent.name(), aStudent.digid(),
-                aStudent.school(), course );
+        return of( aStudent.name(), aStudent.digid(), aStudent.school(), course );
     }
 
     record StudentAssistantRecord(String name, long digid, String school, String course)
@@ -108,26 +107,19 @@ public interface EmeritusTeacher extends Tutor {
 
     record EmeritusTeacherRecord(Tutor tutor, int retirementYear) implements EmeritusTeacher{
 
-        @Override
-        public String course() {
-            return tutor.course();
-        }
+        @Override public String course() {  return tutor.course(); }
 
-        @Override
-        public String name() {
-            return tutor.name();
-        }
+        @Override public String name() { return tutor.name(); }
 
-        @Override
-        public long digid() {
-            return tutor.digid();
-        }
+        @Override public long digid() {  return tutor.digid(); }
 
     }
 }
 ----
 
-When you compare the two types above, you see that the [green]*StudentAssistant* makes short work of the student and unpacks it to make
+=== More ways to implement an interface
+
+When you compare the two types above, you see that the [green]*StudentAssistant* second factory makes short work of the student and unpacks it to make
 a complete record.
 The [green]**EmeritusTeacher**'s record on the other hand, wants to 'muse' a bit on the better times and unpacks the contained Tutor instance, each time
 he is asked about that. Maybe that is fitting in his situation.

@@ -28,8 +28,7 @@ public interface StudentAssistant extends Student, Tutor {
     }
 
     static StudentAssistant of(Student aStudent, String course) {
-        return new StudentAssistantRecord( aStudent.name(), aStudent.digid(),
-                aStudent.school(), course );
+        return of( aStudent.name(), aStudent.digid(), aStudent.school(), course );
     }
 
     record StudentAssistantRecord(String name, long digid, String school, String course)
