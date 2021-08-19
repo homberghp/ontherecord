@@ -12,9 +12,10 @@
     <artifactId>typeheirarchy</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>typeheirarchy :: solution-base</name>
+    <name>typehierarchy :: solution-base</name>
     <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <exec.mainClass>typehierarchy.School</exec.mainClass>
     </properties>
     
 </project>

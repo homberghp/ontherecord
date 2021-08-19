@@ -13,23 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package typeheirarchy;
+package typehierarchy;
 
 /**
  *
  * @author Pieter van den Hombergh {@code <pieter.van.den.hombergh@gmail.com>}
  */
-public interface Tutor extends Person {
+public interface Person {
 
-    String course();
+    String name();
 
-    static Tutor of(String name, long digid, String course) {
-        return new TutorRecord( name, digid, course );
+    long digid();
+
+    public static Person of(String name, long digid) {
+        return new PersonRecord( name, digid );
     }
 
-    record TutorRecord(String name, long digid, String course) implements Tutor {
+    public record PersonRecord(String name, long digid) implements Person {
 
     }
-;
-
 }

@@ -13,37 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package typeheirarchy;
+package typehierarchy;
 
 /**
  *
  * @author Pieter van den Hombergh {@code <pieter.van.den.hombergh@gmail.com>}
  */
-public interface EmeritusTeacher extends Tutor {
+public interface Alumnus extends Student {
+    
+    Student student();
+    int graduationYear();
+    
+    static Alumnus of(Student aStudent, int year){
+        return new AlumnusRecord(  aStudent,year);
+    } 
+    
+    record AlumnusRecord(String name, long digid, String school, int graduationYear) implements Alumnus{
 
-    int retirementYear();
-
-    static EmeritusTeacher of(Tutor aTutor, int retirementYear) {
-        return new EmeritusTeacherRecord( aTutor, retirementYear );
-    }
-
-    record EmeritusTeacherRecord(Tutor tutor, int retirementYear) implements EmeritusTeacher{
-
-        @Override
-        public String course() {
-            return tutor.course();
+        private AlumnusRecord(Student aStudent, int year) {
+            this(aStudent.name(),aStudent.digid(),aStudent.school(),year);
 
         }
 
         @Override
-        public String name() {
-            return tutor.name();
+        public Student student() {
+            return Student.of(name(),digid(),school());
         }
-
-        @Override
-        public long digid() {
-            return tutor.digid();
-        }
-
     }
 }
