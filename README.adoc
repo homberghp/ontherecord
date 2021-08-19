@@ -119,9 +119,11 @@ public interface EmeritusTeacher extends Tutor {
 
 === More ways to implement an interface
 
-When you compare the two types above, you see that the [green]*StudentAssistant* second factory makes short work of the student and unpacks it to make
-a complete record.
-The [green]**EmeritusTeacher**'s record on the other hand, wants to 'muse' a bit on the better times and unpacks the contained Tutor instance, each time
-he is asked about that. Maybe that is fitting in his situation.
+When you compare the two types above, you see
+
+* that the [green]*StudentAssistant* second factory makes short work of the student and unpacks it to make
+  a complete record.
+* The [green]**EmeritusTeacher**'s record on the other hand, wants to 'muse' a bit on the better times and unpacks the contained Tutor instance, each time
+  he is asked about that. Maybe that is fitting in his situation.
 
 '''
