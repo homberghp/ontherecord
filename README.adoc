@@ -111,7 +111,6 @@ public interface EmeritusTeacher extends Tutor {
         @Override
         public String course() {
             return tutor.course();
-
         }
 
         @Override
